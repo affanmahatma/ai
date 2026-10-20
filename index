@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupKu - Solusi Kreatif Anak Muda</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+        h2 {
+            color: #4f46e5;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .btn {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #4338ca;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        #ai-result {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e0e7ff;
+            border-left: 5px solid #4f46e5;
+            border-radius: 4px;
+            display: none;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Hero Section -->
+    <header>
+        <h1>🚀 StartupKu</h1>
+        <p>Solusi Cerdas & Praktis untuk Kebutuhan Remaja Masa Kini</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Bagian Tentang Produk/Jasa -->
+        <div class="card">
+            <h2>Tentang Layanan Kami</h2>
+            <p>Kami hadir untuk membantu menyelesaikan masalahmu dengan cepat, efisien, dan berbasis teknologi. Pilih produk atau konsultasikan kebutuhanmu langsung melalui platform ini!</p>
+        </div>
+
+        <!-- Bagian Fitur Interaktif / Simulasi AI Sederhana -->
+        <div class="card">
+            <h2>🤖 Konsultasi AI Mini</h2>
+            <p>Tuliskan kendala atau kebutuhanmu di bawah ini, dan sistem AI kami akan memberikan rekomendasi solusi instan:</p>
+            <input type="text" id="userInput" placeholder="Contoh: Saya butuh rekomendasi desain grafis untuk tugas...">
+            <button class="btn" onclick="prosesAI()">Dapatkan Solusi</button>
+            
+            <div id="ai-result">
+                <strong>Rekomendasi AI:</strong> <p id="outputTeks"></p>
+            </div>
+        </div>
+
+        <!-- Bagian Formulir Pemesanan / Kontak -->
+        <div class="card">
+            <h2>🛒 Pesan / Hubungi Kami</h2>
+            <form onsubmit="kirimPesan(event)">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" required placeholder="Masukkan namamu">
+                
+                <label for="pesan">Pesan / Detail Pesanan:</label>
+                <textarea id="pesan" rows="4" required placeholder="Tuliskan detail produk atau jasa yang ingin dipesan..."></textarea>
+                
+                <button type="submit" class="btn">Kirim Pesanan</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 StartupKu - Dibangun dengan 💡 oleh Siswa Kreatif</p>
+    </footer>
+
+    <!-- JavaScript Interaktif -->
+    <script>
+        function prosesAI() {
+            const input = document.getElementById('userInput').value;
+            const resultBox = document.getElementById('ai-result');
+            const outputTeks = document.getElementById('outputTeks');
+
+            if(input.trim() === "") {
+                alert("Mohon masukkan pertanyaan atau kendalamu terlebih dahulu!");
+                return;
+            }
+
+            // Simulasi respon cerdas berbasis JavaScript
+            resultBox.style.display = "block";
+            outputTeks.innerHTML = `Berdasarkan masalah "${input}", kami menyarankan paket Layanan Standar kami dengan estimasi pengerjaan cepat dan harga ramah pelajar!`;
+        }
+
+        function kirimPesan(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value;
+            alert(`Terima kasih, ${nama}! Pesanan atau pesanmu berhasil dikirim (Simulasi). Kami akan segera menghubungimu.`);
+            event.target.reset();
+        }
+    </script>
+
+</body>
+</html>
